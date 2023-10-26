@@ -1,0 +1,56 @@
+%==========================================
+% Style des titres avec le paquet titlesec
+%==========================================
+
+% https://borntocode.fr/latex-personnaliser-les-titres-chapter/
+% https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/titlesec/titlesec.pdf 
+% https://tex.stackexchange.com/questions/30432/styling-the-part-page
+% https://www.youtube.com/watch?v=p2IPlxJd-5E
+
+\titleclass{\part}{top} % make part like a chapter
+\titleformat
+    {\part}
+    [display]
+    {\centering\normalfont\large\scshape\bfseries}
+    {\rule[3pt]{0.15\linewidth}{3pt}\quad {\color{red} \partname}\quad \rule[3pt]{0.15\linewidth}{3pt}}
+    {0pt}
+    {\rule{\linewidth}{0.5pt}\break\Huge}
+    [\vspace{-0.5\baselineskip}{\color{red}#1}\break \rule{\linewidth}{0.5pt}]
+\titlespacing*{\part}{0pt}{0pt}{3\baselineskip}
+
+\titleclass{\chapter}{straight} % make chapter like a section (no newpage)
+\titleformat
+    {\chapter}
+    [block]
+    {\LARGE\scshape\bfseries}
+    {\thechapter\hspace{\baselineskip}{\color{red} #1}}
+    {\baselineskip}
+    {}
+    [\hrule\vspace{2pt}\hrule]
+\titlespacing*{\chapter}{0pt}{10pt}{\baselineskip}    
+
+\titleformat
+    {\section}
+    [block]
+    {\Large\bfseries}
+    {\thesection\hspace{\baselineskip}{\color{red} #1}}
+    {\baselineskip}
+    {}
+    []
+\titlespacing*{\section}{0pt}{10pt}{\baselineskip} 
+
+\titleformat
+    {\subsection}
+    [block]
+    {\large\bfseries}
+    {{\color{red} #1}}
+    {\baselineskip}
+    {}
+    []
+\titlespacing*{\subsection}{0pt}{10pt}{\baselineskip}
+
+% Réinitiliser les numérotations de chapitre à chaque changement de partie
+% https://www.mathematex.fr/viewtopic.php?t=17461
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother

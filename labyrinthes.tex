@@ -1,0 +1,52 @@
+\documentclass[french,a4paper]{book}
+\newcommand{\currentpath}{.}
+\input{preambule}
+
+\begin{document}
+\frontmatter
+\pagestyle{front}
+\input{0couverture}
+\input{0remerciements}
+
+\begin{center}%
+    \bfseries\LARGE Sommaire
+\end{center}
+\shorttableofcontents{Sommaire}{0}%sommaire avec uniquement les chapitres
+\addcontentsline{toc}{chapter}{Sommaire}%ajout du sommaire dans le sommaire !
+
+\mainmatter
+\pagestyle{plain}
+\part{Introduction}
+\chapter{Présentation du projet}
+\input{1presentation}
+\input{2description}
+
+\part{\dots}
+\chapter{\dots}
+\renewcommand{\currentSectionTitle}{path to the next file}
+\section{...}
+% \input{./nuitDuJeu/intro}
+
+\clearpage
+\renewcommand{\currentSectionTitle}{path to the next file}
+\section{\dots}
+%\input{./nuitDuJeu/photos}
+
+\clearpage
+\renewcommand{\currentSectionTitle}{Part1Chap1Section2}
+\section{Part1Chap1Section2}
+
+\clearpage
+\chapter{Part1Chap2}
+
+\section{Part1Chap2Section1}
+
+\section{Part1Chap2Section2}
+
+\backmatter
+\pagestyle{empty}
+\begin{center}%
+    \bfseries\LARGE Table des matières
+\end{center}
+\tableofcontents
+\end{document}

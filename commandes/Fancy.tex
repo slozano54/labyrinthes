@@ -1,0 +1,30 @@
+%==========================================
+% Entetes et pieds de pages
+%==========================================
+%   LE : champ gauche pour les pages paires
+%   LO : champ gauche pour les pages impaires
+%   C : champ central pour toutes les pages
+%   CE : champ central pour les pages paires
+%   CO : champ central pour les pages impaires
+%   R : champ droit pour toutes les pages
+%   RE : champ droit pour les pages paires
+%   RO : champ droit pour les pages impaires
+
+\fancypagestyle{front}{%
+                \fancyhf{}%on vide l'en-tête
+                \fancyfoot[C]{page \thepage}%
+                \renewcommand{\headrulewidth}{0pt}%trait horizontal pour l'en-tête
+                \renewcommand{\footrulewidth}{0.4pt}%trait horizontal pour le pied de page
+}
+
+% On redéfinit le style plain pour corriger le style imposé par la classe report aux \chapter
+\fancypagestyle{plain}{%
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot{}   % réinitialiser les pieds
+\fancyhead{}   % réinitialiser les entêtes
+\fancyfoot[C]{%
+\\\textbf{\thepage/\pageref{LastPage}}} 
+\fancyfoot[L]{\currentSectionTitle \par Sébastien LOZANO - \href{https://mathslozano.fr/}{\textbf{https://mathslozano.fr/}}}
+\fancyfoot[R]{\href{https://irem.univ-lorraine.fr/}{\textbf{https://irem.univ-lorraine.fr/}}\\\href{https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr}{CC BY-NC-SA}}
+}

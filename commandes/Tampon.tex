@@ -1,0 +1,61 @@
+% Une commande pour un tampon d'indication du niveau
+% #1 --> x,y
+% #2 --> couleur cadre
+% #3 --> couleur texte
+% #4 --> texte
+
+\newcommand{\tampon}[4]{
+  % l'origine est mise en bas à gauche, l'unité est le centimètre
+  \begin{tikzpicture}[remember picture, overlay,shift={(current page.south west)}] 
+    \node[shift={(#1)},draw=#2,rounded corners,rectangle,inner sep=5mm,rotate=30,very thick,opacity=.9]
+    {
+      \begin{tabular}{c}
+        \textcolor{#3}{#4}
+      \end{tabular}
+    };
+  \end{tikzpicture}
+}
+
+% Nouvelle commande qui remplacera la précédente
+% Les appels sont à modifier
+% Une commande pour faire un tampon avec un système de clefs/valeurs
+% On définit le trousseau par défaut
+\setKVdefault[Tampon]{%
+  Angle=30,%
+  Abscisse=2,%
+  Ordonnee=27,%
+  CouleurCadre=red,%
+  CouleurTexte=red,%
+  Largeur=10cm,
+  TexteAModifier=false
+}
+% On définit une nouvelle clef au besoin
+% Cela signifie que si la clef Texte est utilisée, la booléenne TexteAModifier passe à true
+\defKV[Tampon]{Texte=\setKV[Tampon]{TexteAModifier}}
+
+\NewDocumentCommand\Tampon{o}{%
+  \useKVdefault[Tampon]% On revient aux valeurs par défaut, équivalent à restoreKV[Tampon]
+  \setKV[Tampon]{#1}% On lit les arguments optionnels
+  \xdef\TamponAngle{\useKV[Tampon]{Angle}}
+  \xdef\TamponAbscisse{\useKV[Tampon]{Abscisse}}
+  \xdef\TamponOrdonnee{\useKV[Tampon]{Ordonnee}}
+  \xdef\TamponCouleurCadre{\useKV[Tampon]{CouleurCadre}}
+  \xdef\TamponCouleurTexte{\useKV[Tampon]{CouleurTexte}}
+  \def\TamponTexte{
+    \ifboolKV[Tampon]{TexteAModifier}
+      {\useKV[Tampon]{Texte}}
+      {Amazing tampon !}
+  }
+  \begin{tikzpicture}[remember picture, overlay,shift={(current page.south west)}] 
+    \node[shift={(\TamponAbscisse,\TamponOrdonnee)},draw=\TamponCouleurCadre,rounded corners,rectangle,inner sep=5mm,rotate=\TamponAngle,very thick,opacity=.9]
+    {%
+      \begin{minipage}{\useKV[Tampon]{Largeur}}
+        \begin{center}
+          \vspace*{-2mm}
+          \color{\TamponCouleurTexte}
+          \TamponTexte\\\vspace*{-5mm}
+        \end{center}
+      \end{minipage}
+    };
+  \end{tikzpicture}
+}

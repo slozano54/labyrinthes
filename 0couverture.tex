@@ -1,0 +1,78 @@
+\begin{titlepage}  
+  \parindent=0pt
+  \myHeader   
+
+  \hrulefill
+
+  \medskip
+
+  \begin{center}\bfseries
+    \myHeaderTitle   
+  \end{center}
+
+  \Tampon[%
+    Angle=25,%
+    Abscisse=4.3,%
+    Ordonnee=22,%
+    Largeur=4cm,%
+    Texte={{\setmainfont{QTCaslanOpen}\large Imaginer, c'est hausser\\ le réel d'un ton.\\{\scriptsize Gaston Bachelard}}},%        
+  ]
+  \medskip
+  \hrulefill
+  \medskip
+  \begin{center}
+    \includegraphics[scale=0.3]{images/8fondTransparent}%
+  \end{center}
+  \vspace*{\stretch{0.5}}
+  \myThickRuleFill \par \vskip 1.5em%
+  \hrule
+  \vskip 0.5em%
+  {\LARGE
+    \myThickRuleFill\quad\scshape {\color{red}\myTitle} \quad\myThickRuleFill
+  }%
+  \vskip 0.5em%
+  \hrule
+  \vskip 1.5em%
+  \myThickRuleFill
+  %\vspace*{1.7cm}
+
+  \begin{center}\bfseries\Large
+    \myAuthor      
+
+    \smallskip
+    \myDate
+
+    \bigskip
+    {\normalsize%
+    Fichiers sources disponibles à la demande\\\smallskip    
+
+    Tapuscrit : Sébastien LOZANO
+    } 
+  \end{center}
+  \Tampon[%
+    Abscisse=15,%
+    Ordonnee=3,%
+    Largeur=6.5cm,%
+    Texte={{\setmainfont{QTCaslanOpen}\large Compilation Lua\LaTeX{} préférerable\vspace*{-2mm}}}
+  ]
+  %\tampon{15,4}{red}{red}{Compilation Lua\LaTeX{} préférerable}  
+  \vspace*{\stretch{2}}
+  \begin{tikzpicture}[remember picture, overlay]
+    \begin{scope}[shift={(current page.south west)},shift={(1,1)},scale=1]
+      \shade[ball color=gray,opacity=.6] (0,0) circle (10ex);
+      \shade[ball color=red,opacity=.8] (1.7,1) circle (5ex);
+      \shade[ball color=gray,opacity=.8] (1.5,3) circle (2ex);
+      \shade[ball color=red,opacity=.5] (-0.5,3) circle (1ex);
+      \shade[ball color=green,opacity=.8] (1,4) circle (1ex);
+      \shade[ball color=red,opacity=.6] (3.5,2.5) circle (2ex);
+      \shade[ball color=blue,opacity=.8] (2.5,4.5) circle (4ex);
+      \shade[ball color=gray,opacity=.5] (3,4) circle (3ex);
+      \shade[ball color=red,opacity=.8] (4.5,4.5) circle (3ex);
+      \shade[ball color=green,opacity=.5] (5.1,4.7) circle (2ex);
+      \shade[ball color=blue,opacity=.8] (5,6) circle (1.5ex);
+      \shade[ball color=red,opacity=.6] (3.5,5.5) circle (2ex);
+      \shade[ball color=green,opacity=.8] (5,3) circle (1ex);
+    \end{scope}
+  \end{tikzpicture}
+\end{titlepage}
+    

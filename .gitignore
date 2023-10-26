@@ -1,0 +1,10 @@
+# Spécifique MAC
+.DS_Store
+# Fichiers de compilation LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc

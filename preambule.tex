@@ -1,0 +1,75 @@
+%==========================================
+% Compatibilité luaLaTeX
+%==========================================
+% 
+% Paquet profCollege
+\usepackage{ProfCollege}
+
+%==========================================
+% Modifictaion pour la compilation en mode luaLaTeX
+%==========================================
+% Font
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\setmainfont{TeX Gyre Heros}
+\setmathfont{TeX Gyre Schola Math}
+
+% Pour un symbole necessaire à l'environnement Tableur du paquet ProfCollege
+\setmathfont{STIX Two Math}[
+  range={\blacktriangledown}
+]
+%==========================================
+
+% Pour gérer la géométrie de la page.
+\usepackage[top=1cm,bottom=2cm,left=1.5cm,right=1.5cm,nohead]{geometry}
+% Pour les espaces
+\usepackage{setspace}
+% Pour une courte table des matières dans la partie des liminaires.
+\usepackage{shorttoc}
+% Pour utiliser les usages français grâce au <french> de l'option de classe.
+\usepackage{babel}
+% Pour les liens
+% \usepackage{hyperref}
+\usepackage[luatex]{hyperref}
+\hypersetup{
+    colorlinks=true,% On active la couleur pour les liens. Couleur par défaut rouge
+    linkcolor=purple,% On définit la couleur pour les liens internes
+    % filecolor=magenta,% On définit la couleur pour les liens vers les fichiers locaux      
+    % urlcolor=blue,% On définit la couleur pour les liens vers des sites web
+    pdfauthor={Sébastien LOZANO}
+    pdftitle={Labyrinthes},% On définit un titre pour le document pdf
+    % pdfpagemode=FullScreen,% On fixe l'affichage par défaut à plein écran
+    }
+
+%==========================================
+% Style des titres avec le paquet titlesec
+%==========================================
+\usepackage[explicit]{titlesec}
+\input{\currentpath/commandes/Titlesec}
+
+
+%==========================================
+% Entetes et pieds de pages
+%==========================================
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\input{\currentpath/commandes/Fancy}
+
+%==========================================
+% Quelques constantes et commandes
+%==========================================
+\input{\currentpath/commandes/Constantes}
+
+%==========================================
+% Tampon
+%==========================================
+\input{\currentpath/commandes/Tampon}
+
+%==========================================
+% Commandes Puissance Quatre
+%==========================================
+\input{\currentpath/commandes/Labyrinthe}
+
+%==========================================
+% Reglages table des matières
+%==========================================
+\setcounter{tocdepth}{1}
